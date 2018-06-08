@@ -8,7 +8,7 @@
 	<!-- <div class="snb">서브메뉴 하나</div> -->
 	<!--//snb -->
 	<!--content -->
-	<form id="form_join" name="form_join" action="/joinGo" method="post">
+	<form id="form_join" name="form_join" action="/user/joinGo" method="post">
 	<div id="content">
 	
 		<table class="type02">
@@ -23,7 +23,7 @@
 			</tr>
 			<tr>
 				<th scope="row">PASSWORD</th>
-				<td><input name="userPw" style="width: 200px;height: 50px;" type="password" placeholder="비밀번호를 입력하세요" /></td>
+				<td><input name="userPw" style="width: 200px;height: 50px;" type="text" placeholder="비밀번호를 입력하세요" /></td>
 			</tr>
 			<tr>
 				<th scope="row">이름</th>

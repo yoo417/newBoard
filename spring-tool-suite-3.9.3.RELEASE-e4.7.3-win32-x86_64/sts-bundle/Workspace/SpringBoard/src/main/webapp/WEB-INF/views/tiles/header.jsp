@@ -29,20 +29,21 @@ text-align: center;
       <a class="navbar-brand" href="#">GOGO</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a id="a_structure" href="#">HISTORY</a></li>
-      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">게시판 <span class="caret"></span></a>
+      <li class="active"><a id="a_structure" href="#">A N T</a></li>
+      <%-- <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">게시판 <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="#">자유게시판</a></li>
+          <li><a href="${path.context}/board/main">자유게시판</a></li>
           <li><a href="#">Page 1-2</a></li>
           <li><a href="#">Page 1-3</a></li>
-        </ul>
+        </ul> --%>
       </li>
 	      <!-- <li><a href="#">Page 2</a></li>
 	      <li><a href="#">Page 3</a></li> -->
+	      <li><a id="a_board"  href="#">게시판</a></li> 
 	      <li><a id="a_join"  href="#">회원가입</a></li> 
 	      <li><a id="a_login"  href="#">로그인</a></li> 
         <!-- <li><a data-toggle="modal" data-target="#myModal" href="#">로그인</a></li> -->
-        <li><a id="a_logout" href="#">로그아웃</a></li>        
+        <!-- <li><a id="a_logout" href="#">로그아웃</a></li>   -->      
     </ul>
   </div>
 </nav>
@@ -59,6 +60,12 @@ text-align: center;
 	$('#a_login').on('click',function(){
 		 $('#form_nav')
 		 	.attr('action','${path.context}/login')
+			.attr('method','GET')
+			.submit();
+	})
+	$('#a_board').on('click',function(){
+		 $('#form_nav')
+		 	.attr('action','${path.context}/board/main')
 			.attr('method','GET')
 			.submit();
 	})

@@ -134,48 +134,43 @@ public class LoginController {
 	
 	
 	//회원가입 정보 등록
-	@RequestMapping(value="/joinGo", method = RequestMethod.POST)
-	public ModelAndView joinRegister2(JoinVo vo, Model model) throws Exception{
+		@RequestMapping(value="/user/joinGo", method = RequestMethod.POST)
+		public String joinRegister2(JoinVo vo, Model model) throws Exception{
+			
+			System.out.print("입력된값"+vo);
+			
+			ModelAndView mv = new ModelAndView();
+			service.JoinRegist(vo);
+			
+			/*model.addAttribute("userId", vo.getUserId());
+			model.addAttribute("userPW", vo.getUserPw());
+			model.addAttribute("userName", vo.getUserName());
+			model.addAttribute("userEmail", vo.getUserEmail());
+			model.addAttribute("userPhoneNum", vo.getUserPhoneNum());
+			*/
+			
+			System.out.println("가입완료.나오는곳");
+			System.out.println("mv주소: "+mv);
+			System.out.println("가입아이디"+vo.getUserId());
+			
+			return "redirect:/user/joinview?userId="+vo.getUserId();
+			//return mv;
+		}
 		
-		System.out.print("입력된값"+vo);
-		
-		ModelAndView mv = new ModelAndView();
-		service.JoinRegist(vo);
-		
-		/*model.addAttribute("userId", vo.getUserId());
-		model.addAttribute("userPW", vo.getUserPw());
-		model.addAttribute("userName", vo.getUserName());
-		model.addAttribute("userEmail", vo.getUserEmail());
-		model.addAttribute("userPhoneNum", vo.getUserPhoneNum());*/
-		
-		mv.setViewName("user/joinview");
-		System.out.println("가입완료.나오는곳");
-		System.out.println("mv주소: "+mv);
-		System.out.println("가입아이디"+vo.getUserId());
-		//return "user/joinview?userID="+vo.getUserId();
-		
-		
-		return mv;
-	}
-	
-	//회원가입 완료 후 뷰페이지
-	@RequestMapping(value="/user/joinview", method=RequestMethod.GET)
-	public ModelAndView joinView(JoinVo vo , Model model ) throws Exception{
-		System.out.println("가입정보 뷰");
-		ModelAndView mv = new ModelAndView();
-		
-		
-		System.out.println(vo);
-		
-		mv.addObject("view", service.joinView(vo));
-		
-		mv.setViewName("user/joinview");
-		System.out.println(mv.getViewName());
+		//회원가입 완료 후 뷰페이지
+		@RequestMapping(value="/user/joinview", method=RequestMethod.GET)
+		public ModelAndView joinView(JoinVo vo , Model model ) throws Exception{
+			System.out.println("가입정보 뷰");
+			ModelAndView mv = new ModelAndView();
+			System.out.println(vo);
+			
+			mv.addObject("userview", service.joinView(vo));
+			mv.setViewName("user/joinview");
 
-		System.out.println("view페이지 mv :"+mv);
-		System.out.println("view페이지vo :"+vo);
-		System.out.println("아이디값"+vo.getUserId());
-		return mv;
-		//return "redirect:/user/joinview?userId="+vo.getUserId();
-	}
+			System.out.println("setViewName: "+mv.getViewName());
+			System.out.println("view페이지vo :"+vo);
+			System.out.println("아이디값"+vo.getUserId());
+			return mv;
+			//return "redirect:/user/joinview?userId="+vo.getUserId();
+		}
 }

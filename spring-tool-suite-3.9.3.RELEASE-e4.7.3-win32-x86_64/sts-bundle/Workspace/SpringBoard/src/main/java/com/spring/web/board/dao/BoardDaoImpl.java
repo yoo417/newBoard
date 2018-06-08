@@ -16,7 +16,7 @@ public class BoardDaoImpl implements BoardDao {
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 	
-	private static final String Name_Space ="com.spring.web.mapper.Mapper.";
+	private static final String Name_Space ="com.spring.web.mapper.boardMapper.";
 	
 	@Override
 	//검색어 있는 경우

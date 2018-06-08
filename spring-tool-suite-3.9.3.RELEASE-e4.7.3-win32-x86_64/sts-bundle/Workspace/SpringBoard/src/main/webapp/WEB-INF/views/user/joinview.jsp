@@ -9,16 +9,13 @@
 	<!--//snb -->
 	<!--content -->
 	<form id="form_join" name="form_join">
-		<input type="hidden" name="userId" value="${userId}" />
+		<%-- <input type="hidden" name="userId" value="${userId}" />
 		<input type="hidden" name="userPW" value="${userPW}" />
 		<input type="hidden" name="userName" value="${userName}" />
 		<input type="hidden" name="userEmail" value="${userEmail}" />
 		<input type="hidden" name="userPhoneNum" value="${userPhoneNum}" />
-		
+		 --%>
 	<div id="content">
-	
-	${view.userId }
-	
 		<table class="type02">
 			<caption>* 가입정보 확인</caption>
 			<colgroup>
@@ -29,22 +26,27 @@
 			<%-- <c:forEach items="${view}" var="view"> --%>
 			<tr>
 				<th scope="row">ID</th>
+				<td>${userview.userId}</td>
 				<td>${userId}</td>
 			</tr>
 			<tr>
 				<th scope="row">PASSWORD</th>
-				<td>${view.userPw }</td>
+				<td>${userview.userPw }</td>
+				<td>${userPw }</td>
 			</tr>
 			<tr>
 				<th scope="row">이름</th>
-				<td>${view.userName }</td>
+				<td>${userview.userName }</td>
+				<td>${userName }</td>
 			</tr>
 			<tr>
 				<th scope="row">이메일</th>
+				<td>${userview.userEmail }</td>
 				<td>${userEmail }</td>
 			</tr>
 			<tr>
 				<th scope="row">전화번호</th>
+				<td>${userview.userPhoneNum }</td>
 				<td>${userPhoneNum }</td>
 			</tr>
 			<%-- </c:forEach>  --%>
